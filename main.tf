@@ -126,13 +126,13 @@ resource "aws_iam_role" "efs" {
 }
 
 resource "helm_release" "aws_efs_csi_driver" {
-  chart           = "aws-efs-csi-driver"
-  name            = "aws-efs-csi-driver"
-  namespace       = var.namespace
+  chart            = "aws-efs-csi-driver"
+  name             = "aws-efs-csi-driver"
+  namespace        = var.namespace
   create_namespace = true
-  repository      = "https://kubernetes-sigs.github.io/aws-efs-csi-driver/"
-  version         = "2.2.7"
-  wait            = true
+  repository       = "https://kubernetes-sigs.github.io/aws-efs-csi-driver/"
+  version          = "2.2.7"
+  wait             = true
 
   values = [
     templatefile("${path.module}/templates/aws-efs-csi-driver.yaml", {

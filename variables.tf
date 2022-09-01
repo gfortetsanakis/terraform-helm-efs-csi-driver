@@ -8,16 +8,16 @@ variable "eks_cluster_name" {
 
 variable "efs_csi_driver_controller_sa" {
   description = "The name of the service account to be created for efs csi driver controller."
-  default = "efs-csi-controller-sa"
+  default     = "efs-csi-controller-sa"
 }
 variable "efs_csi_driver_node_sa" {
   description = "The name of the service account to be created for efs csi driver node daemons."
-  default = "efs-csi-node-sa"
+  default     = "efs-csi-node-sa"
 }
 
 variable "efs_storage_class" {
   description = "The name of the storage class to be created in kubernetes."
-  default = "efs-sc"
+  default     = "efs-sc"
 }
 
 variable "node_selector" {

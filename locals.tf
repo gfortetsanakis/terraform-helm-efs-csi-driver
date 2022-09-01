@@ -17,7 +17,7 @@ locals {
       }
     }
   }
-  
+
   vpc_id                      = data.aws_eks_cluster.eks_cluster.vpc_config[0].vpc_id
   subnet_ids                  = tolist(data.aws_eks_cluster.eks_cluster.vpc_config[0].subnet_ids)
   openid_connect_provider_url = replace(data.aws_eks_cluster.eks_cluster.identity[0].oidc[0].issuer, "https://", "")
