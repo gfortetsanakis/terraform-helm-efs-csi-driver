@@ -6,6 +6,10 @@ variable "eks_cluster_name" {
   description = "The name of the eks cluster at which the efs csi driver will be installed."
 }
 
+variable "subnet_ids" {
+  description = "The ids of the VPC subnets that will be able to access the EFS file system."
+}
+
 variable "efs_csi_driver_controller_sa" {
   description = "The name of the service account to be created for efs csi driver controller."
   default     = "efs-csi-controller-sa"
