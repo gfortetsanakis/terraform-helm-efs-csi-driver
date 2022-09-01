@@ -87,9 +87,9 @@ resource "aws_security_group" "efs_sg" {
 }
 
 resource "aws_efs_mount_target" "efs-mt" {
-  count           = length(local.subnet_ids)
+  count           = length(var.subnet_ids)
   file_system_id  = aws_efs_file_system.efs_storage_for_eks.id
-  subnet_id       = local.subnet_ids[count.index]
+  subnet_id       = var.subnet_ids[count.index]
   security_groups = [aws_security_group.efs_sg.id]
 }
 

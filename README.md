@@ -8,6 +8,7 @@ This module deploys an efs-csi-driver service on an Amazon EKS cluster. Specific
 | ---------------------------- |--------- | ----------------------------------------------------------------------------------- |
 | namespace                    | Required | The kubernetes namespace at which the efs-csi-driver chart will be deployed         |
 | eks_cluster_name             | Required | The name of the eks cluster at which the efs csi driver will be installed           |
+| subnet_ids                   | Required | The ids of the VPC subnets that will be able to access the EFS file system          |
 | efs_csi_driver_controller_sa | Optional | The name of the service account to be created for efs csi driver controller         |
 | efs_csi_driver_node_sa       | Optional | The name of the service account to be created for efs csi driver node daemons       |
 | efs_storage_class            | Optional | The name of the storage class to be created. The default value is \"efs-sc\"        |
