@@ -1,11 +1,3 @@
-data "aws_eks_cluster" "eks_cluster" {
-  name = var.eks_cluster_name
-}
-
-data "aws_iam_openid_connect_provider" "eks_cluster_oidc" {
-  url = data.aws_eks_cluster.eks_cluster.identity[0].oidc[0].issuer
-}
-
 resource "aws_efs_file_system" "efs_storage_for_eks" {
   creation_token   = "efs_storage_for_eks"
   performance_mode = "generalPurpose"
@@ -87,9 +79,9 @@ resource "aws_security_group" "efs_sg" {
 }
 
 resource "aws_efs_mount_target" "efs-mt" {
-  count           = length(var.subnet_ids)
+  count           = length(local.subnet_ids)
   file_system_id  = aws_efs_file_system.efs_storage_for_eks.id
-  subnet_id       = var.subnet_ids[count.index]
+  subnet_id       = local.subnet_ids[count.index]
   security_groups = [aws_security_group.efs_sg.id]
 }
 

@@ -18,8 +18,9 @@ locals {
     }
   }
 
-  vpc_id                      = data.aws_eks_cluster.eks_cluster.vpc_config[0].vpc_id
-  openid_connect_provider_url = replace(data.aws_eks_cluster.eks_cluster.identity[0].oidc[0].issuer, "https://", "")
-  openid_connect_provider_arn = data.aws_iam_openid_connect_provider.eks_cluster_oidc.arn
-  eks_cluster_sg_id           = data.aws_eks_cluster.eks_cluster.vpc_config[0].cluster_security_group_id
+  openid_connect_provider_url = replace(var.eks_cluster_properties["openid_connect_provider_url"], "https://", "")
+  openid_connect_provider_arn = var.eks_cluster_properties["openid_connect_provider_arn"]
+  vpc_id                      = var.eks_cluster_properties["vpc_id"]
+  eks_cluster_sg_id           = var.eks_cluster_properties["eks_cluster_sg_id"]
+  subnet_ids                  = var.eks_cluster_properties["subnet_ids"]
 }
