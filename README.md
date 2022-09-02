@@ -20,7 +20,7 @@ eks_cluster_properties = {
   vpc_id                      = <ID of the VPC on which the EKS cluster is deployed>
   openid_connect_provider_url = <URL of OpenID connect provider of EKS cluster>
   openid_connect_provider_arn = <ARN of OpenID connect provider of EKS cluster>  
-  subnet_ids                  = <IDs of the VPC subnets on which the EKS cluster is installed>
+  subnet_ids                  = <A list with the IDs of the VPC subnets on which the EKS cluster is installed>
   eks_cluster_sg_id           = <ID of the security group created for the nodes of the EKS cluster>
 }
 ```
